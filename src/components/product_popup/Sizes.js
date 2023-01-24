@@ -8,7 +8,8 @@ const ProductSizes = ({ sizes, selected, onChange, disableAll }) => {
         <Center
           key={size}
           p={2}
-          w="50px"
+          w="45px"
+          h="45px"
           bg={value.status === "Inactive" ? 'gray.200' : (!disableAll && selected === size) ? 'gray.700' : 'white'}
           color={(!disableAll && selected === size) ? 'white' : 'grey.500'}
           outline={(disableAll || value.status === "Inactive") ? "2px dashed gray" : "2px solid black"}

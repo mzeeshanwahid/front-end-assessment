@@ -3,7 +3,7 @@ import React from 'react';
 
 const AddToCart = ({ disable }) => {
   return (
-    <Button colorScheme="red" size="lg" w={['100%', '70%', '100%']} disabled={disable}>
+    <Button colorScheme="red" size="lg" w={['100%', '70%', '100%']} disabled={disable} borderRadius="0">
       Add to Cart
     </Button>
   );
