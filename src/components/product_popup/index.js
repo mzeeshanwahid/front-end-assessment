@@ -27,10 +27,6 @@ const ProductPopup = ({ isOpen, onClose }) => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
-
-    return () => {
-      setLoading(true);
-    };
   }, []);
 
   useEffect(() => {
@@ -126,7 +122,7 @@ const ProductPopup = ({ isOpen, onClose }) => {
                 </Box>
                 <ProductGallary images={data.solid[0].images} />
               </Flex>
-              <Box mt={8} mb={5}>
+              <Box mb={5}>
                 <Box display={{ base: 'none', md: 'none', lg: 'flex' }} mb={5}>
                   <ProductHeader
                     name={data.name}
