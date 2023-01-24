@@ -6,7 +6,7 @@ const ProductGallary = ({ images }) => {
 
   return (
     <>
-      <Flex direction="column" gap={2}>
+      <Flex direction={{ base: 'column', md: 'column', lg: 'row-reverse' }}  gap={2}>
         <Img
           src={images[index]}
           alt="avatar"
@@ -14,7 +14,7 @@ const ProductGallary = ({ images }) => {
           objectFit="cover"
           width={{ md: '100%', lg: '80%' }}
         />
-        <Stack direction="row" mt={5} overflowX="auto">
+        <Stack direction={{ md: 'row', lg: 'column' }} mt={5} overflowX="auto">
           {images.map((image, imgIndex) => (
             <Img
               boxSize={['50px', '80px']}

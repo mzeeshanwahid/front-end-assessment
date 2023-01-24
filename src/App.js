@@ -9,12 +9,16 @@ import {
   useDisclosure,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import ProductPopup from './components/product_popup';
 
 function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    onOpen();
+  }, [onOpen]);
 
   return (
     <ChakraProvider theme={theme}>

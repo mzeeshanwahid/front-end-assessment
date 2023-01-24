@@ -1,5 +1,7 @@
 import {
   Box,
+  Flex,
+  Heading,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -96,34 +98,67 @@ const ProductPopup = ({ isOpen, onClose }) => {
       ) : (
         <ModalContent>
           <ModalCloseButton />
-          {selectedSize && (
-            <Box textAlign="right" mt={10} pr={5}>
-              {sizes[selectedSize].variant_id}
-            </Box>
-          )}
           <ModalBody>
-            <ProductHeader
-              name={data.name}
-              description={data.description}
-              type={data.type}
-              price={selectedSize ? sizes[selectedSize].price : '0.00'}
-            />
-            <Box mt={10}>
-              <ProductGallary images={data.solid[0].images} />
-            </Box>
+            {selectedSize && (
+              <Box textAlign="right" pt={1} pr={10}>
+                {sizes[selectedSize].variant_id}
+              </Box>
+            )}
 
-            <Box mt={4}>
-              <ProductSizes
-                sizes={sizes}
-                selected={selectedSize}
-                onChange={onSizeSelect}
-                disableAll={disableAll}
-              />
-            </Box>
-
-            <Box mt={5} mb={5}>
-              <AddToCart disable={disableAll} />
-            </Box>
+            <Flex
+              direction={{ base: 'column', md: 'column', lg: 'row' }}
+              justify="space-between"
+              gap={10}
+              pb={5}
+            >
+              <Flex
+                direction={{ base: 'column', md: 'column-reverse' }}
+                justify="space-between"
+                gap={5}
+              >
+                <Box display={{ base: 'flex', md: 'flex', lg: 'none' }}>
+                  <ProductHeader
+                    name={data.name}
+                    description={data.description}
+                    type={data.type}
+                    price={selectedSize ? sizes[selectedSize].price : '0.00'}
+                  />
+                </Box>
+                <ProductGallary images={data.solid[0].images} />
+              </Flex>
+              <Box mt={8} mb={5}>
+                <Box display={{ base: 'none', md: 'none', lg: 'flex' }} mb={5}>
+                  <ProductHeader
+                    name={data.name}
+                    description={data.description}
+                    type={data.type}
+                    price={selectedSize ? sizes[selectedSize].price : '0.00'}
+                  />
+                </Box>
+                <Heading as="h5" size="sm" mb={2}>
+                  Size
+                </Heading>
+                <Flex
+                  direction={{
+                    base: 'column',
+                    md: 'row',
+                    lg: 'column',
+                  }}
+                  justify="space-between"
+                  gap={5}
+                  minH={{ lg: '250px' }}
+                  alignItems="center"
+                >
+                  <ProductSizes
+                    sizes={sizes}
+                    selected={selectedSize}
+                    onChange={onSizeSelect}
+                    disableAll={disableAll}
+                  />
+                  <AddToCart disable={disableAll} />
+                </Flex>
+              </Box>
+            </Flex>
           </ModalBody>
         </ModalContent>
       )}
