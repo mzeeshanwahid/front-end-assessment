@@ -85,14 +85,14 @@ const ProductPopup = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onModalClose} size={['sm', 'lg', '5xl']}>
+    <Modal isOpen={isOpen} onClose={onModalClose} size={['sm', 'lg', '5xl']} isCentered={true} scrollBehavior="inside">
       <ModalOverlay />
       {loading ? (
-        <ModalContent>
+        <ModalContent borderRadius="0px">
           <Loader />
         </ModalContent>
       ) : (
-        <ModalContent>
+        <ModalContent borderRadius="0px">
           <ModalCloseButton />
           <ModalBody>
             {selectedSize && (

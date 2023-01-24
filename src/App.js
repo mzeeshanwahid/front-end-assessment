@@ -29,7 +29,7 @@ function App() {
             <Text>Product Popup Design Implementation</Text>
             <Button onClick={onOpen}>Open Popup</Button>
 
-            <ScaleFade initialScale={0.9} in={isOpen} reverse={true}>
+            <ScaleFade initialScale={0.7} in={isOpen} reverse={true}>
               <ProductPopup isOpen={isOpen} onClose={onClose} />
             </ScaleFade>
           </VStack>
